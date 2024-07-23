@@ -1,17 +1,32 @@
-// import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const Sidebar = () => {
+  const [active, setActive] = useState(false)
+
+  //   const setActiveTrue = () => {
+  //     setActive(true)
+  //   }
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <div className="flex flex-row p-2 text-black rounded-b-sm justify-start items-center h-7 w-full bg-emerald-500">
-        <span className="material-icons cursor-pointer text-black hover:scale-105 hover:text-gray-900 duration-200">
+        <span
+          className="cursor-pointer text-black hover:scale-105 hover:text-gray-900 duration-200"
+          onClick={() => setActive(true)}
+        >
           menu
         </span>
       </div>
-      <div className="fixed flex flex-col rounded-md inset-y-0 left-[-100%] lg:w-[200px] md:w-[150px] w-32 bg-emerald-500 duration-700">
-        <div class="flex flex-row justify-end px-4 mt-6">
-          <label className="cursor-pointer hover:scale-125 duration-200">
-            X{' '}
+      <div
+        className={`fixed flex flex-col rounded-md inset-y-0 left-[-100%] lg:w-[200px] md:w-[150px] w-32 bg-emerald-500 duration-700 ${
+          active ? 'left-[0%]' : 'left-[-100%]'
+        }`}
+      >
+        <div className="flex flex-row justify-end px-4 mt-6">
+          <label
+            className="cursor-pointer hover:scale-125 duration-200"
+            onClick={() => setActive(false)}
+          >
+            X
           </label>
         </div>
         <div className="flex flex-col gap-2 p-2 mt-2">
